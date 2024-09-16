@@ -8,7 +8,7 @@ The exercises are listed below.
 ---
 
 ## Week 1: The Bash shell: 
-**General Syntax of the Shell Command**
+**General Syntax of the Shell Command**\
 ![](https://swcarpentry.github.io/shell-novice/fig/shell_command_syntax.svg)
 
 1 [Practical-Bash-Shell](<practical bash shell.md>)
