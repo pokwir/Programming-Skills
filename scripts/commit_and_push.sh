@@ -6,8 +6,8 @@ set_user(){
     #promt for name and email
     read -p "Enter your First and Last Name: " NAME
     read -p "Enter your Email: " EMAIL
-    git config --global user.name NAME
-    git config --global user.email EMAIL
+    git config --global user.name "$NAME"
+    git config --global user.email "$EMAIL"
     echo "User has been set"
 }
 
