@@ -146,5 +146,26 @@ interactive.sh
 variables.sh
 wordcount.s
 ```
+> 👉 The command in the back ticks, `...`, is executed before the enclosing assignment command. Newer versions of bash and other shells support a clearer syntax, `$(...)`.
 
+# Jobs and Processes
 
+Kill a job by pressing Ctrl+C
+Suspend by pressing Ctrl+Z
+
+Unlike Ctrl-C Ctrl-Z doesnt cancel the command, suspends it. A suspended command can be restarted using the `fg (foreground)` command. 
+```
+bash count.sh
+---
+9
+10
+
+Ctrl-Z
+---
+[1]+  Stopped                 bash count.sh
+
+fg
+---
+11
+12
+```
