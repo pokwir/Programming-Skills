@@ -1,4 +1,5 @@
 # History, Bang, and FC
+---
 
 See history of run commands.
 
@@ -35,3 +36,25 @@ To clear history, eg when you accidentally type in your password in the shell pr
 ```
 history -c
 ```
+
+# Directories and files
+---
+touch 
+output direction
+> The `cat` command with no args echos the standard outpt stream. This can be redirected with the `>` operator
+
+```
+cat > my_text.txt
+```
+> if an error arrises during the outpot stream. The errors doesnt go into the stream,. but into the standard error stream. To redirect the standard error stream into a file, its identifier, 2, needs to be used with the output redirection operator. For example
+
+
+``` 
+ls *.cfg 2> output.txt
+```
+> The default stream of `>` has an identifier of 1
+
+```
+cat 1> mytext.txt
+```
+
