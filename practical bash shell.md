@@ -154,6 +154,8 @@ Kill a job by pressing Ctrl+C
 Suspend by pressing Ctrl+Z
 
 Unlike Ctrl-C Ctrl-Z doesnt cancel the command, suspends it. A suspended command can be restarted using the `fg (foreground)` command. 
+[[count.sh]]
+
 ```
 bash count.sh
 ---
