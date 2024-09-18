@@ -98,4 +98,14 @@ Enter number of processors:
 Enter executable:
 Submitting dogecoin to run on 4 processors on something
 ```
+> This can be combined with redirection and capture of the standard output and error streams.
 
+```
+interactive.sh < setting.config > output.txt 2>&1
+cat output.txt
+----
+Enter host name:
+Enter number of processors:
+Enter executable:
+Submitting dogecoin to run on 4 processors on something
+```
