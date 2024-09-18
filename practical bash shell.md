@@ -109,3 +109,42 @@ Enter number of processors:
 Enter executable:
 Submitting dogecoin to run on 4 processors on something
 ```
+
+# Exit Codes
+Commands run via bash produce exit codes, which are saved into a shell variable, `$?`:
+
+```
+ls *.sh
+echo $?
+---
+0
+```
+> An exit-code of 0 means that the command exited without an error.
+
+```
+ls nosuchfile.txt
+echo $?
+---
+2
+```
+> `$?` only stores the exit code of the most recently run command
+
+# Capturing Command Output in Varriables
+The standard output stream of a command can be assigned to a varriable 
+```
+FILES=`ls *sh`
+echo $FILES
+
+---
+count.sh interactive.sh variables.sh wordcount.sh
+```
+```
+for FILE in $FILES; do echo $FILE; done
+---
+count.sh
+interactive.sh
+variables.sh
+wordcount.s
+```
+
+
