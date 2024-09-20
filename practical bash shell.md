@@ -308,11 +308,12 @@ To find the word "not" in haiku.txt
 
 ```
 grep not haiku.txt
-
----
+```
+```
 Is not the true Tao, until
 "My Thesis" not found.
 Today it is not working
+```
 
 `By default, grep searches for a pattern in a case-sensitive way. In addition, the search pattern we have selected does not have to form a complete word`
 
@@ -320,8 +321,8 @@ Today it is not working
 
 ```
 grep -w The haiku.txt
-
-.....................
+```
+```
 The Tao that is seen
 ```
 
@@ -329,8 +330,8 @@ The Tao that is seen
 
 ```
 grep -w "is not" haiku.txt
-
-.....................
+```
+```
 Today it is not working
 ```
 
@@ -338,8 +339,8 @@ Today it is not working
 
 ```
 grep -n "it" haiku.txt
-
-.....................
+```
+```
 5:With searching comes loss
 9:Yesterday it worked
 10:Today it is not working
@@ -350,8 +351,8 @@ Eg. Find the lines that contain the word ‘the’. We can combine the option -w
 
 ```
 grep -n -w "the" haiku.txt
-
-.....................
+```
+```
 2:Is not the true Tao, until
 6:and the presence of absence:
 ```
@@ -366,8 +367,8 @@ grep -n "the" haiku.txt | grep -w "the"
 
 ```
 grep -n -w -i "the" haiku.txt
-
-.....................
+```
+```
 1:The Tao that is seen
 2:Is not the true Tao, until
 6:and the presence of absence:
@@ -383,8 +384,8 @@ grep -nwi "the" haiku.txt
 
 ```
 grep -nwv "the" haiku.txt
-.....................
-
+```
+```
 1:The Tao that is seen
 3:You bring fresh toner.
 4:
@@ -404,8 +405,8 @@ grep {-r} {sometext} {somedirectoty}
 
 ```
 grep -r Yesterday . 
-.....................
-
+```
+```
 ./haiku.txt:Yesterday it worked
 ./LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a
 ./LittleWomen.txt:Yesterday at dinner, when an Austrian officer stared at us and then
