@@ -321,7 +321,7 @@ Today it is not working
 ```
 grep -w The haiku.txt
 
----
+.....................
 The Tao that is seen
 ```
 
@@ -330,7 +330,7 @@ The Tao that is seen
 ```
 grep -w "is not" haiku.txt
 
----
+.....................
 Today it is not working
 ```
 
@@ -339,7 +339,7 @@ Today it is not working
 ```
 grep -n "it" haiku.txt
 
----
+.....................
 5:With searching comes loss
 9:Yesterday it worked
 10:Today it is not working
@@ -351,7 +351,7 @@ Eg. Find the lines that contain the word ‘the’. We can combine the option -w
 ```
 grep -n -w "the" haiku.txt
 
----
+.....................
 2:Is not the true Tao, until
 6:and the presence of absence:
 ```
@@ -366,11 +366,13 @@ grep -n "the" haiku.txt | grep -w "the"
 
 ```
 grep -n -w -i "the" haiku.txt
----
+
+.....................
 1:The Tao that is seen
 2:Is not the true Tao, until
 6:and the presence of absence:
 ```
+
 This can also be written as
 
 ```
@@ -381,7 +383,7 @@ grep -nwi "the" haiku.txt
 
 ```
 grep -nwv "the" haiku.txt
----
+.....................
 
 1:The Tao that is seen
 3:You bring fresh toner.
@@ -402,7 +404,7 @@ grep {-r} {sometext} {somedirectoty}
 
 ```
 grep -r Yesterday . 
----
+.....................
 
 ./haiku.txt:Yesterday it worked
 ./LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a
@@ -418,7 +420,7 @@ As a taster, we can find lines that have an ‘o’ in the second position like 
 ```
 grep -E "^.o" haiku.txt
 
----
+.....................
 You bring fresh toner.
 Today it is not working
 Software is like that.
@@ -435,7 +437,7 @@ find {directory} {something}
 
 ```
 find . -type d
----
+.....................
 .
 ./creatures
 ./alkanes
@@ -447,14 +449,14 @@ find . -type d
 
 ```
 find . -type f
----
+.....................
 ```
 
 > matching by name
 
 ```
 find . -name *.txt
----
+.....................
 ./numbers.txt
 ```
 **NOTE:** shell expands wildcard characters like `*` before commands run, so the actual command that run was 
@@ -467,7 +469,7 @@ The actual command should be:
 
 ```
 find . -name "*.txt"
----
+.....................
 
 ./numbers.txt
 ./writing/haiku.txt
