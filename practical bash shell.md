@@ -273,3 +273,210 @@ done
 
 # Shell Scripts
 ---
+> **Key Points**
+
+> - Save commands in files (usually called shell scripts) for re-use.
+> - bash [filename] runs the commands saved in a file.
+> - $@ refers to all of a shell script’s command-line arguments.
+> - $1, $2, etc., refer to the first command-line argument, the second command-line argument, etc.
+> - Place variables in quotes if the values might have spaces in them.
+> - Letting users decide what files to process is more flexible and more consistent with built-in Unix commands.
+
+# Finding things
+---
+
+> Objectives
+
+> - Use grep to select lines from text files that match simple patterns.
+> - Use find to find files and directories whose names match simple patterns.
+> - Use the output of one command as the command-line argument(s) to another command.
+> - Explain what is meant by ‘text’ and ‘binary’ files, and why many common tools don’t handle the latter well.
+
+`‘grep’ is a contraction of ‘global/regular expression/print’, a common sequence of operations in early Unix text editors. It is also the name of a very useful command-line program.`
+
+The syntax 
+
+```
+grep {sometext} {somefile}
+```
+OR
+```
+grep {pattern} {file}
+```
+
+To find the word "not" in haiku.txt
+
+```
+grep not haiku.txt
+
+---
+Is not the true Tao, until
+"My Thesis" not found.
+Today it is not working
+
+`By default, grep searches for a pattern in a case-sensitive way. In addition, the search pattern we have selected does not have to form a complete word`
+
+> To restrict matches to lines containing the word ‘The’ on its own, we can give grep the `-w` option. This will limit matches to word boundaries.
+
+```
+grep -w The haiku.txt
+
+---
+The Tao that is seen
+```
+
+`Note that a ‘word boundary’ includes the start and end of a line, so not just letters surrounded by spaces. Sometimes we don’t want to search for a single word, but a phrase. We can also do this with grep by putting the phrase in quotes.`
+
+```
+grep -w "is not" haiku.txt
+
+---
+Today it is not working
+```
+
+> Another useful option is `-n`, which numbers the lines that match:
+
+```
+grep -n "it" haiku.txt
+
+---
+5:With searching comes loss
+9:Yesterday it worked
+10:Today it is not working
+```
+
+> We can combine flags
+Eg. Find the lines that contain the word ‘the’. We can combine the option -w to find the lines that contain the word ‘the’ and -n to number the lines that match:
+
+```
+grep -n -w "the" haiku.txt
+
+---
+2:Is not the true Tao, until
+6:and the presence of absence:
+```
+
+This could have also been combined with the pipe command
+```
+grep -n "the" haiku.txt | grep -w "the"
+
+```
+
+> To make the search case sensitive, we can use the flag `i`
+
+```
+grep -n -w -i "the" haiku.txt
+---
+1:The Tao that is seen
+2:Is not the true Tao, until
+6:and the presence of absence:
+```
+This can also be written as
+
+```
+grep -nwi "the" haiku.txt
+```
+
+> We can use the `v` flag to invert the search, the lines that donot contain the word "the"
+
+```
+grep -nwv "the" haiku.txt
+---
+
+1:The Tao that is seen
+3:You bring fresh toner.
+4:
+5:With searching comes loss
+7:"My Thesis" not found.
+8:
+9:Yesterday it worked
+10:Today it is not working
+11:Software is like that.
+```
+
+> Using the `-r` (recursive) option, grep can search for a pattern recursively through a set of files in subdirectories.
+
+```
+grep {-r} {sometext} {somedirectoty}
+```
+
+```
+grep -r Yesterday . 
+---
+
+./haiku.txt:Yesterday it worked
+./LittleWomen.txt:"Yesterday, when Aunt was asleep and I was trying to be as still as a
+./LittleWomen.txt:Yesterday at dinner, when an Austrian officer stared at us and then
+./LittleWomen.txt:Yesterday was a quiet day spent in teaching, sewing, and writing in my
+```
+
+> WildCards or [[Regular Expressions]]
+Regular expressions are both complex and powerful; if you want to do complex searches, please look at the lesson on our [website](https://librarycarpentry.org/lc-data-intro/01-regular-expressions.html) 
+
+As a taster, we can find lines that have an ‘o’ in the second position like this:
+
+```
+grep -E "^.o" haiku.txt
+
+---
+You bring fresh toner.
+Today it is not working
+Software is like that.
+```
+
+## The Find Command
+The `find` command finds files. 
+
+```
+find {directory} {something}
+```
+
+> The first option in our list is `-type` `d` that means ‘things that are directories’
+
+```
+find . -type d
+---
+.
+./creatures
+./alkanes
+./animal-counts
+./writing
+```
+
+> The option `f` is for files
+
+```
+find . -type f
+---
+```
+
+> matching by name
+
+```
+find . -name *.txt
+---
+./numbers.txt
+```
+**NOTE:** shell expands wildcard characters like `*` before commands run, so the actual command that run was 
+
+```
+find . -name numbers.txt
+```
+
+The actual command should be:
+
+```
+find . -name "*.txt"
+---
+
+./numbers.txt
+./writing/haiku.txt
+./writing/LittleWomen.txt
+```
+
+> Key Points
+> - find finds files with specific properties that match patterns.
+> - grep selects lines in files that match patterns.
+> - --help is an option supported by many bash commands, and programs that can be run from within Bash, to display more information on how to use these commands or programs.
+> - man [command] displays the manual page for a given command.
+> - $([command]) inserts a command’s output in place
